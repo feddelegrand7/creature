@@ -12,3 +12,5 @@ LazyData: true
 Imports: 
     htmltools,
     glue
+URL: https://github.com/feddelegrand7/creature
+BugReports: https://github.com/feddelegrand7/creature/issues
