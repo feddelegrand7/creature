@@ -1,6 +1,7 @@
 create_creature <- function(interactive = TRUE,
                             darktheme = TRUE,
                             pulse = TRUE,
+                            color = "darkviolet",
                             headradius = 60,
                             tickness = 18,
                             tentacles = 40,
@@ -14,6 +15,15 @@ create_creature <- function(interactive = TRUE,
 
  pulse <- ifelse(pulse, "true", "false")
 
+ rgb_col <- grDevices::col2rgb(color)
+
+ hsv_col <- grDevices::rgb2hsv(rgb_col)
+
+ h <- round(hsv_col[1], 1) * 360
+
+ s <- round(hsv_col[2], 1)
+
+ v <- round(hsv_col[3], 1)
 
 
 htmltools::tagList(
@@ -58,7 +68,7 @@ var settings = {{
   tentacles: {tentacles},
   friction: {friction},
   gravity: {gravity},
-  colour: {{ h:0, s:0, v:0.1 }},
+  colour: {{ h:{h}, s:{s}, v:{v} }},
   length: 70,
   pulse: {pulse},
   wind: {wind}
