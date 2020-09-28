@@ -13,6 +13,8 @@ document or Shiny app. The creature was initially developed by [Justin
 Windle](https://soulwire.github.io/sketch.js/), I’ve just found it cool
 and adapted it to R. You can say this is an R wrapper.
 
+![](man/figures/creature.gif)
+
 ## Installation
 
 You can install the development version from
