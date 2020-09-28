@@ -1,3 +1,48 @@
+#' Create an interactive animation in canvas
+#'
+#' @param interactive logical. If TRUE, the animation follows the position of the cursor. Defaults to FALSE
+#' @param pulse logical, whether the head of the animation should pulsate. Defaults to FALSE
+#' @param color the color of the animation. Defaults to "darkviolet"
+#' @param headradius the radius of the head of the animation. Defaults to 60
+#' @param tickness the thickness of the tentacles of the animation. Defaults to 18
+#' @param tentacles the animation's number of tentacles. Defaults to 40
+#' @param friction the value of the friction assigned to the movement of the animation. Defaults to 0.02
+#' @param gravity the value of gravity assigned to the movement of the animation. Defaults to 0.5
+#' @param wind A value related to the direction of movement of the animation. Defaults to -0.5.
+#'
+#' @return an animated form within a canvas
+#' @export
+#'
+#' @examples
+#'if(interactive()){
+#'
+#'ui <- fluidPage(
+#'
+#'
+#'create_creature(interactive = FALSE,
+#'                color = "#324C63",
+#'                tentacles = 100,
+#'                tickness = 20,
+#'                friction = rpois(1, 2),
+#'                gravity = 0,
+#'
+#'                wind = 2)
+#'
+#'                )
+#'
+#'                server <- function(input, output) {
+#'
+#'                }
+#'
+#'
+#'                shinyApp(ui = ui, server = server)
+#'
+#'
+#' }
+#'
+#'
+
+
 create_creature <- function(interactive = TRUE,
                             pulse = TRUE,
                             color = "darkviolet",
@@ -59,7 +104,7 @@ htmltools::tagList(
 
 var settings = {{
   interactive: {interactive},
-  darkTheme: {darktheme},
+  darkTheme: false,
   headRadius: {headradius},
   thickness: {tickness},
   tentacles: {tentacles},
@@ -405,12 +450,6 @@ onThemeChanged( true );
 
 
 )
-
-
-
-
-
-
 
 
 

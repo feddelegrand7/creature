@@ -1,16 +1,20 @@
 Package: creature
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Create an Anteractive Creature in 'RMarkdown' Documents and 'shiny' Applications
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(
+    person("Mohamed El Fodil", "Ihaddaden", email = "ihaddaden.fodeil@gmail.com", role = c("aut", "cre")),
+    person("Windle", "Justin", role = c("ctb", "cph"), comment = "sketch.js and Muscular-Hydrostats example developer")) 
+Maintainer: Mohamed El Fodil Ihaddaden <ihaddaden.fodeil@gmail.com>
+Description: allows the user to create an interactive creature within 'rmarkdown' documents and 'shiny' apps.
+    The animation is implemented using the 'sketch.js' 'JavaScript' library. See <https://soulwire.github.io/sketch.js/> for more information. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
     htmltools,
-    glue
+    glue,
+    grDevices
 URL: https://github.com/feddelegrand7/creature
 BugReports: https://github.com/feddelegrand7/creature/issues
+RoxygenNote: 7.1.1
