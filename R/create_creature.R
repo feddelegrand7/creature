@@ -23,7 +23,7 @@
 #'                color = "#324C63",
 #'                tentacles = 100,
 #'                tickness = 20,
-#'                friction = rpois(1, 2),
+#'                friction = 0.3,
 #'                gravity = 0,
 #'
 #'                wind = 2)
