@@ -406,38 +406,6 @@ function onSettingsChanged() {{
   modified = true;
 }}
 
-function onThemeChanged( dark ) {{
-
-  settings.colour.h = 0;
-  settings.colour.s = 0;
-  settings.colour.v = dark ? 0.8 : 0.1;
-
-  document.body.className = dark ? 'dark' : '';
-
-  colourGUI.updateDisplay();
-}}
-
-var gui = new dat.GUI();
-gui.add( settings, 'headRadius' ).min( 0.0 ).max( 100.0 ).onChange( onSettingsChanged );
-gui.add( settings, 'tentacles' ).min( 1 ).max( 100 ).onChange( onSettingsChanged );
-gui.add( settings, 'thickness' ).min( 1.0 ).max( 40.0 ).onChange( onSettingsChanged );
-gui.add( settings, 'length' ).min( 10.0 ).max( 100.0 ).onChange( onSettingsChanged );
-gui.add( settings, 'gravity' ).min( -3.0 ).max( 3.0 ).onChange( onSettingsChanged );
-gui.add( settings, 'wind' ).min( -3.0 ).max( 3.0 ).onChange( onSettingsChanged );
-gui.add( settings, 'friction' ).min( 0.0 ).max( 1.0 ).onChange( onSettingsChanged );
-
-var colourGUI = gui.addColor( settings, 'colour' );
-gui.add( settings, 'darkTheme' ).onChange( onThemeChanged );
-gui.add( settings, 'pulse' );
-
-var interactiveGUI = gui.add( settings, 'interactive' );
-gui.add( sketch, 'autoclear' );
-gui.add( sketch, 'export' );
-gui.close();
-
-onThemeChanged( true );
-
-
 
 
     "
