@@ -1,5 +1,4 @@
 create_creature <- function(interactive = TRUE,
-                            darktheme = TRUE,
                             pulse = TRUE,
                             color = "darkviolet",
                             headradius = 60,
@@ -10,8 +9,6 @@ create_creature <- function(interactive = TRUE,
                             wind = -0.5){
 
  interactive <- ifelse(interactive, "true", "false")
-
- darktheme <- ifelse(darktheme, "true", "false")
 
  pulse <- ifelse(pulse, "true", "false")
 
