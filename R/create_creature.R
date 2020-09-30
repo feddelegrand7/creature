@@ -34,7 +34,7 @@
 #'
 #'   shinyApp(ui = ui, server = server)
 #' }
-create_creature <- function(interactive = TRUE,
+create_creature <- function(interactive = FALSE,
                             pulse = TRUE,
                             color = "darkviolet",
                             headradius = 60,
