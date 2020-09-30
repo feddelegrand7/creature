@@ -14,35 +14,26 @@
 #' @export
 #'
 #' @examples
-#'if(interactive()){
+#' if (interactive()) {
+#'   ui <- fluidPage(
+#'     create_creature(
+#'       interactive = FALSE,
+#'       color = "#324C63",
+#'       tentacles = 100,
+#'       tickness = 20,
+#'       friction = 0.3,
+#'       gravity = 0,
+#'       wind = 2
+#'     )
+#'   )
 #'
-#'ui <- fluidPage(
+#'   server <- function(input, output) {
 #'
-#'
-#'create_creature(interactive = FALSE,
-#'                color = "#324C63",
-#'                tentacles = 100,
-#'                tickness = 20,
-#'                friction = 0.3,
-#'                gravity = 0,
-#'
-#'                wind = 2)
-#'
-#'                )
-#'
-#'                server <- function(input, output) {
-#'
-#'                }
+#'   }
 #'
 #'
-#'                shinyApp(ui = ui, server = server)
-#'
-#'
+#'   shinyApp(ui = ui, server = server)
 #' }
-#'
-#'
-
-
 create_creature <- function(interactive = TRUE,
                             pulse = TRUE,
                             color = "darkviolet",
@@ -51,35 +42,29 @@ create_creature <- function(interactive = TRUE,
                             tentacles = 40,
                             friction = 0.02,
                             gravity = 0.5,
-                            wind = -0.5){
+                            wind = -0.5) {
+  interactive <- ifelse(interactive, "true", "false")
 
- interactive <- ifelse(interactive, "true", "false")
+  pulse <- ifelse(pulse, "true", "false")
 
- pulse <- ifelse(pulse, "true", "false")
+  rgb_col <- grDevices::col2rgb(color)
 
- rgb_col <- grDevices::col2rgb(color)
+  hsv_col <- grDevices::rgb2hsv(rgb_col)
 
- hsv_col <- grDevices::rgb2hsv(rgb_col)
+  h <- round(hsv_col[1], 1) * 360
 
- h <- round(hsv_col[1], 1) * 360
+  s <- round(hsv_col[2], 1)
 
- s <- round(hsv_col[2], 1)
-
- v <- round(hsv_col[3], 1)
-
-
-htmltools::tagList(
-
-  sketch_dependency(),
+  v <- round(hsv_col[3], 1)
 
 
-  htmltools::tags$script(htmltools::HTML(
+  htmltools::tagList(
+    sketch_dependency(),
 
 
-    glue::glue(
-
-
-      "
+    htmltools::tags$script(htmltools::HTML(
+      glue::glue(
+        "
     /**
  * Copyright (C) 2012 by Justin Windle
  *
@@ -409,18 +394,7 @@ function onSettingsChanged() {{
 
 
     "
-               )
-
-
-
-  ))
-
-
-
-)
-
-
-
-
-
+      )
+    ))
+  )
 }
