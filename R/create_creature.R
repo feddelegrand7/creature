@@ -280,7 +280,7 @@ var sketch = Sketch.create({{
 
     var tentacle;
 
-    for ( var i = 0; i < 100; i++ ) {{
+    for ( var i = 0; i < 1000; i++ ) {{
 
       tentacle = new Tentacle({{
         length: random( 10, 20 ),
