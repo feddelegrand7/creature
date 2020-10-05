@@ -1,6 +1,5 @@
 #' Create an interactive animation in canvas
 #'
-#' @param interactive logical. If TRUE, the animation follows the position of the cursor. Defaults to FALSE
 #' @param mouse logical. If TRUE, the animation can be moved by the user. Defaults to FALSE
 #' @param pulse logical, whether the head of the animation should pulsate. Defaults to FALSE
 #' @param color the color of the animation. Defaults to "darkviolet"
@@ -18,7 +17,6 @@
 #' if (interactive()) {
 #'   ui <- fluidPage(
 #'     create_creature(
-#'       interactive = FALSE,
 #'       color = "#324C63",
 #'       tentacles = 100,
 #'       tickness = 20,
@@ -35,8 +33,7 @@
 #'
 #'   shinyApp(ui = ui, server = server)
 #' }
-create_creature <- function(interactive = FALSE,
-                            mouse = FALSE,
+create_creature <- function(mouse = FALSE,
                             pulse = TRUE,
                             color = "darkviolet",
                             headradius = 60,
@@ -46,10 +43,13 @@ create_creature <- function(interactive = FALSE,
                             gravity = 0.5,
                             wind = -0.5) {
 
-  interactive <- ifelse(interactive, "true", "false")
 
+
+
+  interactive <- "false"
+
+  # Whether to allow the user to move the animation of not
   mouse1 <- ifelse(mouse, "", "/*")
-
   mouse2 <- ifelse(mouse, "", "*/")
 
 
