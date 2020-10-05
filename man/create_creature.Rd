@@ -6,6 +6,7 @@
 \usage{
 create_creature(
   interactive = FALSE,
+  mouse = FALSE,
   pulse = TRUE,
   color = "darkviolet",
   headradius = 60,
@@ -18,6 +19,8 @@ create_creature(
 }
 \arguments{
 \item{interactive}{logical. If TRUE, the animation follows the position of the cursor. Defaults to FALSE}
+
+\item{mouse}{logical. If TRUE, the animation can be moved by the user. Defaults to FALSE}
 
 \item{pulse}{logical, whether the head of the animation should pulsate. Defaults to FALSE}
 

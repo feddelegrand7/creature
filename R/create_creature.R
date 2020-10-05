@@ -1,6 +1,7 @@
 #' Create an interactive animation in canvas
 #'
 #' @param interactive logical. If TRUE, the animation follows the position of the cursor. Defaults to FALSE
+#' @param mouse logical. If TRUE, the animation can be moved by the user. Defaults to FALSE
 #' @param pulse logical, whether the head of the animation should pulsate. Defaults to FALSE
 #' @param color the color of the animation. Defaults to "darkviolet"
 #' @param headradius the radius of the head of the animation. Defaults to 60
@@ -35,6 +36,7 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 create_creature <- function(interactive = FALSE,
+                            mouse = FALSE,
                             pulse = TRUE,
                             color = "darkviolet",
                             headradius = 60,
@@ -43,7 +45,13 @@ create_creature <- function(interactive = FALSE,
                             friction = 0.02,
                             gravity = 0.5,
                             wind = -0.5) {
+
   interactive <- ifelse(interactive, "true", "false")
+
+  mouse1 <- ifelse(mouse, "", "/*")
+
+  mouse2 <- ifelse(mouse, "", "*/")
+
 
   pulse <- ifelse(pulse, "true", "false")
 
@@ -366,7 +374,7 @@ var sketch = Sketch.create({{
     this.fill();
   }},
 
-  mousedown: function() {{
+  {mouse1}mousedown: function() {{
 
     if ( demo ) {{
 
@@ -380,7 +388,7 @@ var sketch = Sketch.create({{
         settings.wind = 0.0;
       }}
     }}
-  }},
+  }},{mouse2}
 
   export: function() {{
     window.open( this.canvas.toDataURL(), 'tentacles', 'top=20,left=20,width=' + this.width + ',height=' + this.height );
