@@ -259,9 +259,7 @@ Tentacle.prototype = {{
 
     if ( settings.thickness > 2 ) {{
 
-      v += settings.darkTheme ? -10 : 10;
 
-      ctx.strokeStyle = 'hsl(' + h + ',' + s + '%,' + v + '%)';
       ctx.lineWidth = 1;
       ctx.stroke();
     }}
