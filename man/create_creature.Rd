@@ -5,7 +5,7 @@
 \title{Create an interactive animation in canvas}
 \usage{
 create_creature(
-  interactive = TRUE,
+  interactive = FALSE,
   pulse = TRUE,
   color = "darkviolet",
   headradius = 60,
@@ -42,31 +42,24 @@ an animated form within a canvas
 Create an interactive animation in canvas
 }
 \examples{
-if(interactive()){
+if (interactive()) {
+  ui <- fluidPage(
+    create_creature(
+      interactive = FALSE,
+      color = "#324C63",
+      tentacles = 100,
+      tickness = 20,
+      friction = 0.3,
+      gravity = 0,
+      wind = 2
+    )
+  )
 
-ui <- fluidPage(
+  server <- function(input, output) {
 
-
-create_creature(interactive = FALSE,
-               color = "#324C63",
-               tentacles = 100,
-               tickness = 20,
-               friction = 0.3,
-               gravity = 0,
-
-               wind = 2)
-
-               )
-
-               server <- function(input, output) {
-
-               }
+  }
 
 
-               shinyApp(ui = ui, server = server)
-
-
+  shinyApp(ui = ui, server = server)
 }
-
-
 }
